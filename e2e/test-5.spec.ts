@@ -66,19 +66,19 @@ test('test', async ({ page }) => {
 // Card
       // Attendre que l'iframe soit présent
 
-   try {
+   //try {
      // Sélectionner l'iframe parent
-const parentFrame = page.frameLocator("//iframe[@id='chk-if-30394']");
+//const parentFrame = page.frameLocator("//iframe[@id='chk-if-30394']");
 
 // Sélectionner l'iframe enfant à l'intérieur de l'iframe parent
-const cardFrame = parentFrame.frameLocator("//iframe[@name='card.number']");
+//const cardFrame = parentFrame.frameLocator("//iframe[@name='card.number']");
 
 // Remplir le champ Card Number
-await cardFrame.locator("input[name='card.number']").fill("424242424242");
+//await cardFrame.locator("input[name='card.number']").fill("424242424242");
 
-} catch (e) {
-  console.warn('⚠️ Loader toujours visible après 15s, on continue quand même');
-}
+//} catch (e) {
+  //console.warn('⚠️ Loader toujours visible après 15s, on continue quand même');
+//}
  
      
   
