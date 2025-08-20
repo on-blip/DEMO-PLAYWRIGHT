@@ -1,7 +1,7 @@
 import { test, expect, webkit } from '@playwright/test';
 test.skip(({ browserName }) => browserName !== 'chromium', 'Exécuté uniquement sur Chromium');
 
-test('test', async ({ page }) => {
+test('Process de paiement', async ({ page }) => {
   test.setTimeout(200000);
   try{
      await page.goto('https://sicom-stg.sitefinity.cloud/');
