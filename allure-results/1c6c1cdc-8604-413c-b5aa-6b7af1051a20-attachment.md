@@ -1,0 +1,146 @@
+# Page snapshot
+
+```yaml
+- banner:
+  - img "Beachcomber"
+  - navigation:
+    - text: Trails
+    - link "Hotel":
+      - /url: /en#257659
+    - link "Gallery":
+      - /url: /en/event-gallery-2025-trail
+    - link "Contact us":
+      - /url: /en/event-contact-us
+  - link "Register":
+    - /url: https://roag.org/
+    - button "Register":
+      - img
+      - text: Register
+  - button "en"
+- main:
+  - img "trail"
+  - heading "The outdoors awaits" [level=1]
+  - paragraph: The outdoors awaits
+  - button "Run with us"
+  - paragraph: Challenges
+  - heading "Latest Beachcomber trails" [level=2]
+  - text: et sit Morbi eu adipiscing tellus consectetur vel sollicitudin tristique. scelerisque.
+  - img "nautilus"
+  - img "souffleur"
+  - heading "Trail du Nautile" [level=2]
+  - paragraph: eu. dolor, et suscipit quis laoreet Morbi ullamcorper aliquet suscipit tortor nisi ut luctus. diam, massa Maecenas adipiscing fringilla. ultricies consectetur et lacinia. ligula vitae venenatis ultricies nisi vestibulum auctor dignissim dolor massa Nulla massa Morbi tellus vel Donec vestibulum adipiscing dolor sollicitudin elit. fermentum consectetur mauris ante ullamcorper tincidunt ullamcorper massa consectetur dignissim
+  - text: 88 Days 17 Hours 50 Minutes
+  - button "Voir le sentier"
+  - button
+  - button
+  - paragraph: Our hotels
+  - heading "Our hotels" [level=2]
+  - heading "Where beautiful places create exceptional memories..." [level=3]
+  - paragraph: vestibulum Morbi tincidunt consectetur Morbi eu. tincidunt malesuada diam, sit Lorem lacinia lacinia Suspendisse ut lacinia dolor, fringilla. lacinia elit. eu bibendum adipiscing
+  - img "Royal Palm Beachcomber Luxury"
+  - heading "Royal Palm Beachcomber Luxury" [level=3]
+  - paragraph: A palace with a human touch
+  - button "Discover"
+  - img "Dinarobin Beachcomber Golf Resort & Spa"
+  - heading "Dinarobin Beachcomber" [level=3]
+  - paragraph: Where elegance, well-being and tropical charm are the order of the day
+  - button "Discover"
+  - img "Paradis Beachcomber Golf Resort & Spa"
+  - heading "Paradis Beachcomber" [level=3]
+  - paragraph: An exceptional playground for families
+  - button "Discover"
+  - img "Trou aux Biches Beachcomber Golf Resort & Spa"
+  - heading "Trou aux Biches Beachcomber" [level=3]
+  - paragraph: A journey for the sense
+  - button "Discover"
+  - list:
+    - listitem:
+      - button "1"
+    - listitem:
+      - button "2"
+  - button "Discover"
+  - img "Contact Us"
+  - paragraph: Contact us
+  - heading "Get in touch with us" [level=2]
+  - paragraph: ullamcorper quis et non mauris In Sed Maecenas tincidunt at. consectetur nibh
+  - heading "Do you need more instructions ?" [level=3]
+  - paragraph: Please fill the form with your details below
+  - textbox "First name"
+  - textbox "Last name"
+  - textbox "Email"
+  - textbox "Write your message here"
+  - checkbox "I have read and agree to Beachcomber’s Privacy Policy"
+  - paragraph:
+    - text: I have read and agree to Beachcomber’s
+    - link "Privacy Policy":
+      - /url: /event-privacy-policy
+  - button "Contact us"
+  - paragraph: Your message has been sent successfully!
+  - paragraph: Race gallery
+  - heading "Step it to the race through our photo gallery" [level=2]
+  - text: vestibulum adipiscing vel fringilla. nibh elit. tristique. suscipit quis et adipiscing nisi eu. nisi
+- contentinfo:
+  - heading "STAY CONNECTED AND GET EXCLUSIVE UPDATES" [level=3]
+  - button "Subscribe"
+  - paragraph: "Follow us :"
+  - link "Twitter":
+    - /url: https://twitter.com/Beachcomber_
+    - img "Twitter"
+  - link "Facebook":
+    - /url: https://www.facebook.com/BeachcomberHotels
+    - img "Facebook"
+  - link "Instagram":
+    - /url: https://instagram.com/beachcomber_hotels?ref=badge
+    - img "Instagram"
+  - link "Youtube":
+    - /url: https://www.youtube.com/user/beachcomberhotels
+    - img "Youtube"
+  - heading "Event" [level=3]:
+    - link "Event":
+      - /url: /en
+  - heading "Trails" [level=3]:
+    - link "Trails":
+      - /url: /en/races
+  - heading "Results" [level=3]:
+    - link "Results":
+      - /url: /en/results-page
+  - heading "Gallery" [level=3]:
+    - link "Gallery":
+      - /url: /en/event-gallery-2025-trail
+  - heading "Contact us" [level=3]:
+    - link "Contact us":
+      - /url: /en/event-contact-us
+  - paragraph: © 2024 NEW MAURITIUS HOTELS LTD. All rights reserved. 沪ICP备13041005号-1
+  - link "Privacy Policy":
+    - /url: /en/event-privacy-policy
+  - link "Terms and conditions":
+    - /url: /en/general-terms-conditions
+  - button
+  - heading "LIVE UNFORGETTABLE EXPERIENCES" [level=1]
+  - text: Be the first to hear about our special offers and exclusive deals.
+  - textbox "Contact Email*": test2@test.fr
+  - textbox "First Name": olivier
+  - textbox "Last Name": QA
+  - text: You can sign up to receive email updates from topics that may interest you.
+  - table:
+    - rowgroup:
+      - row "Brand and Communication":
+        - cell "Brand and Communication":
+          - checkbox "Brand and Communication" [checked]
+          - text: Brand and Communication
+      - row "Special Deals and Offers":
+        - cell "Special Deals and Offers":
+          - checkbox "Special Deals and Offers" [checked]
+          - text: Special Deals and Offers
+  - separator
+  - text: "*Required Fields"
+  - checkbox "I agree to the" [checked]
+  - text: I agree to the
+  - link "Privacy Policy":
+    - /url: https://www.beachcomber-hotels.com/en/privacy-policy
+  - text: and
+  - link "Terms of Use":
+    - /url: https://www.beachcomber-hotels.com/en/terms-conditions
+  - button "Join Now"
+- alert
+```

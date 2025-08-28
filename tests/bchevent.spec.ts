@@ -3,6 +3,13 @@ import { test, expect } from '@playwright/test';
 test('homepage event', async ({ page }) => {
     test.setTimeout(200_000);
     await page.goto('https://staging-events.beachcomber-hotels.com/en/');
+
+    // Dismiss cookie banner if present
+    const cookieAccept = page.locator('button:has-text("I Accept")');
+    if (await cookieAccept.isVisible()) {
+        await cookieAccept.click();
+    }
+
     //verifier le titre de la page
     await expect(page).toHaveTitle(/Homepage Event | Beachcomber/);
     //verifier les elements de slider
@@ -59,5 +66,46 @@ await page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div
 await page.locator('//*[@id="privacy-policy"]').check();
 await page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[6]/button').click();
 
+await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[1]/input')).toBeEmpty();
+await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[2]/input')).toBeEmpty();
+await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[3]/input')).toBeEmpty();
+await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[4]/textarea')).toBeEmpty();
+await expect(page.locator('//*[@id="privacy-policy"]')).not.toBeChecked();
+await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[6]/div/p')).toHaveText('Your message has been sent successfully!');
+
+//footer
+await expect(page.locator('//*[@id="__next"]/div/footer/div/div[1]/div[1]/div[1]/div/button')).toBeVisible();
+await expect(page.locator('//*[@id="__next"]/div/footer/div/div[1]/div[2]/div/div/div[1]/h3/a')).toBeVisible();
+await expect(page.locator('//*[@id="__next"]/div/footer/div/div[1]/div[1]/div[1]/h3')).toHaveText('STAY CONNECTED AND GET EXCLUSIVE UPDATES');
+await expect(page.locator('//*[@id="__next"]/div/footer/div/div[1]/div[2]/div/div/div[2]/h3/a')).toBeVisible();
+await expect(page.locator('//*[@id="__next"]/div/footer/div/div[1]/div[2]/div/div/div[3]/h3/a')).toBeVisible();
+await expect(page.locator('//*[@id="__next"]/div/footer/div/div[1]/div[2]/div/div/div[4]/h3/a')).toBeVisible();
+await expect(page.locator('//*[@id="__next"]/div/footer/div/div[1]/div[2]/div/div/div[5]/h3/a')).toBeVisible();
+await expect(page.locator('//*[@id="__next"]/div/footer/div/div[2]/p')).toHaveText('© 2024 NEW MAURITIUS HOTELS LTD. All rights reserved. 沪ICP备13041005号-1');
+await expect(page.locator('//*[@id="__next"]/div/footer/div/div[2]/div/a[1]')).toBeVisible();
+await expect(page.locator('//*[@id="__next"]/div/footer/div/div[2]/div/a[2]')).toBeVisible();
+
+//subscription et modal
+await page.locator('//*[@id="__next"]/div/footer/div/div[1]/div[1]/div[1]/div/button').click();
+//fermer le modal
+await page.locator('//*[@id="__next"]/div/footer/div[2]/div/button').click();
+//reouvrir le modal
+await page.locator('//*[@id="__next"]/div/footer/div/div[1]/div[1]/div[1]/div/button').click();
+await expect(page.locator('//*[@id="SIGNUP_BODY_ALL"]/h1')).toHaveText('LIVE UNFORGETTABLE EXPERIENCES');
+await expect(page.locator('//*[@id="SIGNUP_BODY_ALL"]/div[1]')).toHaveText('Be the first to hear about our special offers and exclusive deals.');
+await page.locator('//*[@id="SIGNUP_BODY"]/div[1]/div[2]/div[1]/input').fill('test2@test.fr');
+await page.locator('//*[@id="SIGNUP_BODY"]/div[1]/div[2]/div[2]/input').fill('olivier');
+await page.locator('//*[@id="SIGNUP_BODY"]/div[1]/div[2]/div[3]/input').fill('QA');
+await page.locator('//*[@id="780643000002793399"]').check();
+await page.locator('//*[@id="780643000000041001"]').check();
+
+// Localiser la checkbox par son name
+await page.locator('//*[@id="SIGNUP_BODY"]/div[5]/label/input').check(); 
+await expect(page.locator('input[name="PRIVACY_POLICY"]')).toBeChecked();
+
+
+  //submit
+await page.locator('//*[@id="zcWebOptin"]').click();
+await page.goto('https://staging-events.beachcomber-hotels.com/en/');
 
 });
