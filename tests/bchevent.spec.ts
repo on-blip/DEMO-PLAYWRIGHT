@@ -50,10 +50,14 @@ await expect(titreGras).toHaveCSS('font-weight', /(bold|400)/);
   //bloc picture
 await expect(page.locator('//*[@id="__next"]/div/main/div[1]/section/div/div[2]/div/div[1]/div')).toBeVisible();
 
+//scroll un peu vers le bas
+await page.locator('body').press('PageDown');
+await page.waitForTimeout(1000);
+
 //bloc hotel
-await expect(page.locator('//*[@id="257659"]/div')).toBeVisible();
-await expect(page.locator('//*[@id="257659"]/div/div/div[3]/button')).toBeVisible();
-await page.locator('//*[@id="257659"]/div/div/div[3]/button').click();
+await expect(page.locator('//*[@id="259439"]/div/div/div[1]/p')).toBeVisible({ timeout: 150000 });
+await expect(page.locator('//*[@id="259439"]/div/div/div[3]/button')).toBeVisible();
+await page.locator('//*[@id="259439"]/div/div/div[3]/button').click();
 await expect(page).toHaveURL('https://www.beachcomber-hotels.com/en/hotels-mauritius');
 
 //formulaire
@@ -118,7 +122,7 @@ await page.goto('https://staging-events.beachcomber-hotels.com/en/');
 //npx playwright test --list to see all tests
 //npx playwright test --project=chromium  to run all tests in chromium
 //npx playwright test --project=chromium --grep @smoke to run specific tests
-test.describe.configure({ mode: 'parallel' });
+//test.describe.configure({ mode: 'parallel' }); 
 
 
 test('page races', async ({ page }) => {
