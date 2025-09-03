@@ -207,12 +207,89 @@ await expect(activeMenuraces).toHaveText('Races');
     await expect(para).toHaveCSS('font-weight', '400');
     // Vérifier la couleur du texte
     await expect(para).toHaveCSS('color', 'rgb(51, 51, 51)'); 
+
+    //scroll un peu vers le bas
+    await page.locator('body').press('PageDown');
+    await page.waitForTimeout(1000); // attendre 1 seconde pour voir l'effet de scroll
+
+    //bloc map
+    await test.step('Vérification de la section map et ouverture du pdf map', async () => {         
+    await expect(page.locator('//*[@id="__next"]/div/main/div[1]/section/div/div/div[1]/section/div/div[1]/div[2]')).toBeVisible();
+    //cliquer sur view larger map
+    await expect(page.locator('//*[@id="__next"]/div/main/div[1]/section/div/div/div[1]/section/div/div[2]/a/button')).toBeVisible();
+
+    // Ouvrir le lien dans une nouvelle page
+  const [newPage] = await Promise.all([
+    page.context().waitForEvent('page'), // attendre la nouvelle page
+    page.locator('xpath=//*[@id="__next"]/div/main/div[1]/section/div/div/div[1]/section/div/div[2]/a/button').click(), // clic
+  ]);
+
+  await newPage.waitForLoadState('domcontentloaded'); // attend que la page soit prête
+  console.log('Nouvelle page ouverte :', newPage.url());
+
+  // Ici tu peux vérifier l'URL ou contenu si besoin
+  // Ex : expect(newPage.url()).toMatch(/some-pattern/);
+
+  await newPage.close(); // fermer la popup
+
+
+});
+
+      //scroll un peu vers le bas
+    await page.locator('body').press('PageDown');
+    await page.waitForTimeout(1000); // attendre 1 seconde pour voir l'effet de scroll
+    await page.locator('body').press('PageDown');
+    await page.waitForTimeout(1000); // attendre 1 seconde pour voir l'effet de scroll
+
+    //races gallery
+    await test.step('Vérification de la section gallery et ouverture d\'une image', async () => {   
+    const gallery = page.locator('//*[@id="__next"]/div/main/div[2]/section/div/div[1]/p');        
+    await expect(page.locator('//*[@id="__next"]/div/main/div[2]/section/div/div[1]/p')).toBeVisible();
     
- 
-})
+    // Vérifier la police utilisée
+    await expect(gallery).toHaveCSS('font-family', /Montserrat-Regular/);
+    // Vérifier la taille du texte
+    await expect(gallery).toHaveCSS('font-size', '20px');
+    // Vérifier la graisse (bold, normal, etc.)
+    await expect(gallery).toHaveCSS('font-weight', '400');
+    // Vérifier la couleur du texte
+    await expect(gallery).toHaveCSS('color', 'rgb(51, 51, 51)');
+
+    });
+
+    await test.step('Vérification de la typographie sous le titre en gras', async () => {
+
+    //typographie sous le titre en gras
+    const gallerybold = page.locator('//*[@id="__next"]/div/main/div[2]/section/div/div[1]/h2');
+
+    await expect(gallerybold).toBeVisible();
+    // Vérifier la police utilisée
+    await expect(gallerybold).toHaveCSS('font-family', /Montserrat-Bold/);
+    // Récupérer la couleur calculée (getComputedStyle)
+const color = await gallerybold.evaluate(el => getComputedStyle(el).color);
+
+// Vérifier la valeur
+expect(color).toBe('rgb(51, 51, 51)');
+
+// Vérifier aussi la taille de police si besoin
+const fontSize = await gallerybold.evaluate(el => getComputedStyle(el).fontSize);
+expect(fontSize).toBe('40px');
+});
+
+//scroll un peu vers le bas
+    await page.locator('body').press('PageDown');
+    await page.waitForTimeout(1000); // attendre 1 seconde pour voir l'effet de scroll
+    //cliquer sur une image pour l'ouvrir
+    await test.step(' Ouvertured\'une image de la galerie', async () => {
+    await expect(page.locator('//*[@id="3182-wl-4ee3100c-fbf8-4d9f-850d-d8f2ecf3dba6"]')).toBeVisible({ timeout: 150000 });
+    await page.locator('//*[@id="3182-wl-4ee3100c-fbf8-4d9f-850d-d8f2ecf3dba6"]').click();
+    //attendre que le modal soit visible
+    await expect(page.locator('//*[@id="cr__fs-wrap"]/div/div/div/div[1]/div[1]/img[1]')).toBeVisible();
+
+    //cliquer en dehor de la photo pour fermer
+    await page.locator('//*[@id="cr__fs-wrap"]/div/div/button[4]').click();
+    await expect(page.locator('//*[@id="cr__fs-wrap"]/div/div/div/div[1]/div[1]/img[1]')).toBeHidden();
 
 
-test.afterEach(async ({ page }) => { 
-    // Close the page after each test to free up resources
-    await page.close();
-});   
+});
+});
