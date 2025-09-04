@@ -192,7 +192,7 @@ await expect(page.locator('//*[@id="SIGNUP_BODY_ALL"]/div[1]')).toHaveText('Be t
 await page.locator('//*[@id="__next"]/div/footer/div[2]/div/button').click();
     });
 
-    await test.step('Navigation vers la page Sous fleur via le menu 'async () => {
+    await test.step('Navigation vers la page Sous fleur via le menu ', async() => {
 //voir sous menu races
 await page.locator('div.menu-item.active').hover();
 await expect(page.locator('//*[@id="__next"]/div/header/div/div/nav/div[1]/div/span/span')).toBeVisible();
