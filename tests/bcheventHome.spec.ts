@@ -55,10 +55,16 @@ await page.locator('body').press('PageDown');
 await page.waitForTimeout(1000);
 
 //bloc hotel
-await expect(page.locator('//*[@id="259439"]/div/div/div[1]/p')).toBeVisible({ timeout: 150000 });
-await expect(page.locator('//*[@id="259439"]/div/div/div[3]/button')).toBeVisible();
-await page.locator('//*[@id="259439"]/div/div/div[3]/button').click();
+await expect(page.locator('//*[@id="hotels"]/div/div/div[1]/p')).toBeVisible({ timeout: 150000 });
+await expect(page.locator('//*[@id="hotels"]/div/div/div[3]/button')).toBeVisible();
+await page.locator('//*[@id="hotels"]/div/div/div[3]/button').click();
 await expect(page).toHaveURL('https://www.beachcomber-hotels.com/en/hotels-mauritius');
+//back
+await page.goBack();
+
+//scroll un peu vers le bas
+await page.locator('body').press('PageDown');
+await page.waitForTimeout(1000);
 
 //formulaire
 await page.goto('https://staging-events.beachcomber-hotels.com/en/');
