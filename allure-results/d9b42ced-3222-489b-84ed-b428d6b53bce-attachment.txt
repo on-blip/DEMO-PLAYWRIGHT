@@ -1,0 +1,1 @@
+⚠️ Loader toujours visible après 15s, on continue quand même

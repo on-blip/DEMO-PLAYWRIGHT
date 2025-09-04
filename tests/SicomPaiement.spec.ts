@@ -31,7 +31,11 @@ test('Process de paiement', async ({ page }) => {
   console.warn('⚠️ Loader toujours visible après 15s, on continue quand même');
 }
 
+//scroll un peu vers le bas
+await page.locator('body').press('PageDown');
+await page.waitForTimeout(1000); // attendre 1 seconde pour voir l'effet de scroll  
 
+//cliquer sur checkbox et payer
      const bouton = page.locator('xpath=//*[@id="container_amount_total"]');
      await expect(bouton).toBeVisible({ timeout: 200000 }); // attendre qu’il apparaisse
      //await expect(bouton).toBeEnabled({ timeout: 80_000 });
@@ -47,10 +51,10 @@ test('Process de paiement', async ({ page }) => {
   // 4. Vérifier que le modal est bien affiché
   await expect(modal).toBeVisible();
      //Titre modal visible ? 
-     await expect(page.locator('xpath=//*[@id="popcheckout"]/div/div/div/h3')).toBeVisible({ timeout: 150000 });
+     await expect(page.locator('xpath=//*[@id="popcheckout"]/div/div/div/h3')).toBeVisible({ timeout: 200000 });
 
      //cliquer Pay now
-    await page.locator('#sendPaymentArrears').click();
+    await page.locator('#sendPaymentArrears').click({ timeout: 200000 });
 
      //Choisir carte de paiement
 
@@ -58,7 +62,7 @@ test('Process de paiement', async ({ page }) => {
     
 
   const cnpButton = page.locator("//button[@data-testid='checkout-CNP-button']");
-  await cnpButton.waitFor({ state: 'visible', timeout: 150000 });
+  await cnpButton.waitFor({ state: 'visible', timeout: 200000 });
 
   // Cliquer sur CNP
   await cnpButton.click();

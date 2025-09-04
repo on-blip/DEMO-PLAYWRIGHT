@@ -1,0 +1,155 @@
+# Page snapshot
+
+```yaml
+- banner:
+  - img "Beachcomber"
+  - img "Beachcomber"
+  - navigation:
+    - text: Races
+    - link "Races rules":
+      - /url: /en/rules-regulation
+    - link "Testimonials":
+      - /url: /en/testimonials
+    - link "Gallery":
+      - /url: /en/event-gallery-2025-trail
+    - link "Contact us":
+      - /url: /en/event-contact-us
+  - link "Register":
+    - /url: https://roag.org/
+    - button "Register":
+      - img
+      - text: Register
+  - button "en"
+- main:
+  - img "landing"
+  - heading "Trail 2025" [level=1]
+  - paragraph: Trail 2025
+  - paragraph: Trail 2025
+  - paragraph
+  - heading "Overview of the Beachcomber Trail" [level=2]
+  - paragraph: Morbi tincidunt tellus sapien tellus at vestibulum lacinia. dolor, ut non
+  - paragraph: dolor, sapien vel ante mauris Maecenas suscipit non dolor scelerisque. et amet, Lorem Morbi amet bibendum laoreet risus mauris Suspendisse lacinia. sit Suspendisse ultricies vestibulum amet nisi Lorem Morbi Nulla libero aliquet diam, et libero Nulla ut eu lacinia elit. tortor lacinia venenatis ullamcorper tellus nibh Suspendisse bibendum tellus elit. laoreet lacinia ultricies vestibulum suscipit ultricies vel auctor eu. sit Sed massa malesuada Sed vitae vel tristique. vestibulum vestibulum Nullam
+  - button "Read More":
+    - text: Read More
+    - img
+  - paragraph: Trail du Souffleur
+  - heading "Shandrani Beachcomber" [level=2]
+  - paragraph: consectetur eu. ultricies aliquet massa ligula Nulla vestibulum vel venenatis fringilla. risus. lacinia. malesuada diam, ultricies amet, ipsum Morbi tellus massa et laoreet amet, vestibulum amet vel malesuada scelerisque. dolor, tristique. et Maecenas venenatis quis laoreet sapien lacinia. dignissim consectetur risus. bibendum sit massa ultricies vestibulum ut vestibulum Sed scelerisque. adipiscing et vestibulum dolor, tellus ligula ut Lorem diam, In a aliquet amet risus tristique. vestibulum Suspendisse risus. et massa at. libero a eu. amet sapien ligula amet, Sed et vitae venenatis sit malesuada at. vel diam, vel In sit vestibulum Lorem dolor massa sapien fringilla. eu.
+  - button "Discover"
+  - heading "et sapien auctor aliquet nib" [level=2]
+  - text: Suspendisse sit nisi dignissim
+  - img "landing"
+  - img "Play"
+  - paragraph: Races in km
+  - heading "Sed ut perspiciatis unde omnis iste natus" [level=2]
+  - text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu
+  - img "trail"
+  - text: Thursday, August 28, 2025 10 Km
+  - heading "Beachcomber Trail, A 5-star challenge" [level=3]
+  - paragraph
+  - button "Register now":
+    - img
+    - text: Register now
+  - link "More info":
+    - /url: /races/beachcomber-trail-5-star-challenge
+  - img "nautilus"
+  - text: Tuesday, November 25, 2025 5 Km
+  - heading "Trail du Nautile" [level=3]
+  - paragraph
+  - button "Register now":
+    - img
+    - text: Register now
+  - link "More info":
+    - /url: /races/trail-du-nautile
+  - button
+  - button
+  - paragraph: Testimonials
+  - heading "What participants are saying about the trail" [level=2]
+  - img
+  - paragraph: sit bibendum sollicitudin amet libero at. at. sit suscipit quis risus Morbi non ipsum venenatis sollicitudin dolor ultricies adipiscing fermentum Nulla at dolor quis tristique. nibh nisi tellus sit Donec risus risus. diam, at tellus ut vel eu. non dignissim malesuada sit at non risus. dolor, vitae fermentum venenatis amet at sit diam,
+  - img "Sarah Doe"
+  - heading "Jane Doe" [level=4]
+  - paragraph: Races
+  - button
+  - button
+  - heading "Beachcomber trail 2024 sponsors" [level=2]
+  - heading "Gold" [level=3]
+  - link "ENL":
+    - /url: "#"
+    - img "ENL"
+  - link "UBP":
+    - /url: "#"
+    - img "UBP"
+  - link "General contruction":
+    - /url: "#"
+    - img "General contruction"
+  - link "MM":
+    - /url: "#"
+    - img "MM"
+  - link "Dione":
+    - /url: "#"
+    - img "Dione"
+  - link "Afrasia":
+    - /url: "#"
+    - img "Afrasia"
+  - heading "Silver" [level=3]
+  - link "MM":
+    - /url: "#"
+    - img "MM"
+  - link "Dione":
+    - /url: "#"
+    - img "Dione"
+  - link "General contruction":
+    - /url: "#"
+    - img "General contruction"
+  - heading "Other" [level=3]
+  - link "ENL":
+    - /url: "#"
+    - img "ENL"
+  - link "MM":
+    - /url: "#"
+    - img "MM"
+  - link "Afrasia":
+    - /url: "#"
+    - img "Afrasia"
+  - link "General contruction":
+    - /url: "#"
+    - img "General contruction"
+- contentinfo:
+  - heading "STAY CONNECTED AND GET EXCLUSIVE UPDATES" [level=3]
+  - button "Subscribe"
+  - paragraph: "Follow us :"
+  - link "Twitter":
+    - /url: https://twitter.com/Beachcomber_
+    - img "Twitter"
+  - link "Facebook":
+    - /url: https://www.facebook.com/BeachcomberHotels
+    - img "Facebook"
+  - link "Instagram":
+    - /url: https://instagram.com/beachcomber_hotels?ref=badge
+    - img "Instagram"
+  - link "Youtube":
+    - /url: https://www.youtube.com/user/beachcomberhotels
+    - img "Youtube"
+  - heading "Event" [level=3]:
+    - link "Event":
+      - /url: /en
+  - heading "Trails" [level=3]:
+    - link "Trails":
+      - /url: /en/races
+  - heading "Results" [level=3]:
+    - link "Results":
+      - /url: /en/results-page
+  - heading "Gallery" [level=3]:
+    - link "Gallery":
+      - /url: /en/event-gallery-2025-trail
+  - heading "Contact us" [level=3]:
+    - link "Contact us":
+      - /url: /en/event-contact-us
+  - paragraph: © 2024 NEW MAURITIUS HOTELS LTD. All rights reserved. 沪ICP备13041005号-1
+  - link "Privacy Policy":
+    - /url: /en/event-privacy-policy
+  - link "Terms and conditions":
+    - /url: /en/general-terms-conditions
+- alert
+```

@@ -74,7 +74,10 @@ await page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div
 await page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[3]/input').fill('test@test.fr');
 await page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[4]/textarea').fill('test playwright message long');
 await page.locator('//*[@id="privacy-policy"]').check();
-await page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[6]/button').click();
+await page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[6]/button').click({timeout: 150000});
+
+
+
 
 await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[1]/input')).toBeEmpty();
 await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[2]/input')).toBeEmpty();

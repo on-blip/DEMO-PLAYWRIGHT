@@ -92,13 +92,13 @@ await test.step('Vérification de la section Trail du Souffleur et de son foncti
     await test.step('logo sponsoring', async () => {
     //section sponsors
     await expect(page.getByText('sponsors')).toBeVisible();
-    await expect(page.locator('//*[@id="__next"]/div/main/div[4]/section/div/div/div[2]/div[1]/div/div/span[1]/a/img')).toBeVisible();
-    await expect(page.locator('//*[@id="__next"]/div/main/div[4]/section/div/div/div[2]/div[1]/div/div/span[2]/a/img')).toBeVisible();
-    await expect(page.locator('//*[@id="__next"]/div/main/div[4]/section/div/div/div[2]/div[1]/div/div/span[3]/a/img')).toBeVisible();
-    await expect(page.locator('//*[@id="__next"]/div/main/div[4]/section/div/div/div[2]/div[1]/div/div/span[4]/a/img')).toBeVisible();
-    await expect(page.locator('//*[@id="__next"]/div/main/div[4]/section/div/div/div[2]/div[1]/div/div/span[5]/a/img')).toBeVisible();
-    await expect(page.locator('//*[@id="__next"]/div/main/div[4]/section/div/div/div[2]/div[1]/div/div/span[6]/a/img')).toBeVisible();
-    await expect(page.locator('//*[@id="__next"]/div/main/div[4]/section/div/div/div[2]/div[2]/div/div/span[1]/a/img')).toBeVisible();
+    await expect(page.locator('//*[@id="__next"]/div/main/div[7]/section/div/div/div[2]/div[1]/div/div/span[1]/a/img')).toBeVisible();
+    await expect(page.locator('//*[@id="__next"]/div/main/div[7]/section/div/div/div[2]/div[1]/div/div/span[2]/a/img')).toBeVisible();
+    await expect(page.locator('//*[@id="__next"]/div/main/div[7]/section/div/div/div[2]/div[1]/div/div/span[3]/a/img')).toBeVisible();
+    await expect(page.locator('//*[@id="__next"]/div/main/div[7]/section/div/div/div[2]/div[1]/div/div/span[4]/a/img')).toBeVisible();
+    await expect(page.locator('//*[@id="__next"]/div/main/div[7]/section/div/div/div[2]/div[1]/div/div/span[5]/a/img')).toBeVisible();
+    await expect(page.locator('//*[@id="__next"]/div/main/div[7]/section/div/div/div[2]/div[1]/div/div/span[6]/a/img')).toBeVisible();
+    await expect(page.locator('//*[@id="__next"]/div/main/div[7]/section/div/div/div[2]/div[2]/div/div/span[1]/a/img')).toBeVisible();
    
 
 
@@ -106,7 +106,7 @@ await test.step('Vérification de la section Trail du Souffleur et de son foncti
     
 
     //verfier hover de logo en couleur
-    const logo = page.locator('//*[@id="__next"]/div/main/div[4]/section/div/div/div[2]/div[1]/div/div/span[1]/a/img');
+    const logo = page.locator('//*[@id="__next"]/div/main/div[7]/section/div/div/div[2]/div[1]/div/div/span[1]/a/img');
     await logo.hover();
     //ajouter une attente pour observer l'effet de survol
     await page.waitForTimeout(1000); // 1 seconde
@@ -114,36 +114,36 @@ await test.step('Vérification de la section Trail du Souffleur et de son foncti
 
     await test.step('Vérification de la section vidéo et de son fonctionnement', async () => {
     //section video, lancer la video youtube
-    await expect(page.locator('//*[@id="__next"]/div/main/div[5]/section/div/div[2]/div/div/div/div/img')).toBeVisible();
-    await page.locator('//*[@id="__next"]/div/main/div[5]/section/div/div[2]/div/div/div/div/img').click();
+    await expect(page.locator('//*[@id="__next"]/div/main/div[4]/section/div/div[2]/div/div/div/div/img')).toBeVisible();
+    await page.locator('//*[@id="__next"]/div/main/div[4]/section/div/div[2]/div/div/div/div/img').click();
     //attendre que la video soit visible
-    await expect(page.locator('//*[@id="__next"]/div/main/div[5]/section/div/div[2]/div/video')).toBeVisible();
+    await expect(page.locator('//*[@id="__next"]/div/main/div[4]/section/div/div[2]/div/video')).toBeVisible();
     });
 
     await test.step('Vérification de la section Races in km et de son fonctionnement', async () => {
     //section Races in km
     await expect(page.getByText('Races in km')).toBeVisible();
-    await expect(page.locator('//*[@id="__next"]/div/main/div[6]/section/div/div[2]/div/div/div/div[1]/div/div/div/div/div[1]')).toBeVisible();
+    await expect(page.locator('//*[@id="__next"]/div/main/div[5]/section/div/div[2]/div/div/div/div[1]/div/div/div/div/div[1]')).toBeVisible();
 
     
     //scroll un peu vers le bas
     await page.locator('body').press('PageDown');
     await page.waitForTimeout(1000); // attendre 1 seconde pour voir l'effet de scroll  
-    await expect(page.locator('//*[@id="__next"]/div/main/div[6]/section/div/div[2]/div/div/div/div[1]/div/div/div/div/div[3]/div/button')).toBeVisible({ timeout: 150000 });
+    await expect(page.locator('//*[@id="__next"]/div/main/div[5]/section/div/div[2]/div/div/div/div[1]/div/div/div/div/div[3]/div/button')).toBeVisible({ timeout: 150000 });
   
 
     //ouvrir le lien dans nouvelle fenetre
     const [newPage] = await Promise.all([
         page.context().waitForEvent('page'),
-        page.locator('//*[@id="__next"]/div/main/div[6]/section/div/div[2]/div/div/div/div[1]/div/div/div/div/div[3]/div/button').click(), // Le clic qui ouvre une nouvelle page
+        page.locator('//*[@id="__next"]/div/main/div[5]/section/div/div[2]/div/div/div/div[1]/div/div/div/div/div[3]/div/button').click(), // Le clic qui ouvre une nouvelle page
     ]);
     await newPage.waitForLoadState();
     await expect(newPage).toHaveURL('https://roag.org/');
     await newPage.close();
 
     //cliquer sur more info et verifier la redirection
-await expect(page.locator('//*[@id="__next"]/div/main/div[6]/section/div/div[2]/div/div/div/div[1]/div/div/div/div/div[3]/div/a')).toBeVisible();
-await page.locator('//*[@id="__next"]/div/main/div[6]/section/div/div[2]/div/div/div/div[1]/div/div/div/div/div[3]/div/a').click();
+await expect(page.locator('//*[@id="__next"]/div/main/div[5]/section/div/div[2]/div/div/div/div[1]/div/div/div/div/div[3]/div/a')).toBeVisible();
+await page.locator('//*[@id="__next"]/div/main/div[5]/section/div/div[2]/div/div/div/div[1]/div/div/div/div/div[3]/div/a').click();
 await expect(page).toHaveURL('https://staging-events.beachcomber-hotels.com/en/races/beachcomber-trail-5-star-challenge');
 goback:
 await page.goBack();
@@ -156,14 +156,14 @@ await expect(page).toHaveURL('https://staging-events.beachcomber-hotels.com/en/r
 
     await test.step('Vérification de la section Testimonials et des éléments du footer', async () => {
 //section Testimonials
-await expect(page.locator('//*[@id="__next"]/div/main/div[7]/section/div/div/div[1]/div/p')).toHaveText('Testimonials');
-await expect(page.locator('//*[@id="__next"]/div/main/div[7]/section/div/div/div[1]/div/h2')).toBeVisible();
-await expect(page.locator('//*[@id="__next"]/div/main/div[7]/section/div/div/div[2]/div[2]')).toBeVisible();
-await expect(page.locator('//*[@id="__next"]/div/main/div[7]/section/div/div/div[2]/div[1]/div/div/div/div[3]/div/div/div/div[1]/p')).toBeVisible();
-await expect(page.locator('//*[@id="__next"]/div/main/div[7]/section/div/div/div[2]/div[1]/div/div/div/div[3]/div/div/div/div[2]/div[1]')).toBeVisible({timeout: 150000});  
-await expect(page.locator('//*[@id="__next"]/div/main/div[7]/section/div/div/div[2]/div[1]/div/div/div/div[3]/div/div/div/div[2]/div[2]')).toBeVisible();
-await expect(page.locator('//*[@id="__next"]/div/main/div[7]/section/div/div/div[2]/div[2]/button[2]')).toBeVisible();
-await page.locator('//*[@id="__next"]/div/main/div[7]/section/div/div/div[2]/div[2]/button[2]').click();
+await expect(page.locator('//*[@id="__next"]/div/main/div[6]/section/div/div/div[1]/div/p')).toHaveText('Testimonials');
+await expect(page.locator('//*[@id="__next"]/div/main/div[6]/section/div/div/div[1]/div/h2')).toBeVisible();
+await expect(page.locator('//*[@id="__next"]/div/main/div[6]/section/div/div/div[2]/div[2]')).toBeVisible();
+await expect(page.locator('//*[@id="__next"]/div/main/div[6]/section/div/div/div[2]/div[1]/div/div/div/div[3]/div/div/div/div[1]/p')).toBeVisible();
+await expect(page.locator('//*[@id="__next"]/div/main/div[6]/section/div/div/div[2]/div[1]/div/div/div/div[3]/div/div/div/div[2]/div[1]')).toBeVisible({timeout: 150000});  
+await expect(page.locator('//*[@id="__next"]/div/main/div[6]/section/div/div/div[2]/div[1]/div/div/div/div[3]/div/div/div/div[2]/div[2]')).toBeVisible();
+await expect(page.locator('//*[@id="__next"]/div/main/div[6]/section/div/div/div[2]/div[2]/button[2]')).toBeVisible();
+await page.locator('//*[@id="__next"]/div/main/div[6]/section/div/div/div[2]/div[2]/button[2]').click();
 await page.waitForTimeout(1000);
     });
 
