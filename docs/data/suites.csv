@@ -1,7 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","19861","homepage event","firefox","Tue Sep 02 16:28:58 EAT 2025","passed","Tue Sep 02 16:29:18 EAT 2025","","bcheventHome.spec.ts","",""
-"","22440","homepage event","chromium","Tue Sep 02 16:28:58 EAT 2025","passed","Tue Sep 02 16:29:21 EAT 2025","","bcheventHome.spec.ts","",""
-"","47466","homepage event","webkit","Tue Sep 02 16:28:58 EAT 2025","passed","Tue Sep 02 16:29:46 EAT 2025","","bcheventHome.spec.ts","",""
-"","35980","page races","chromium","Wed Sep 03 13:53:38 EAT 2025","passed","Wed Sep 03 13:54:14 EAT 2025","","bcheventTrails.spec.ts","",""
-"","200462","page races","webkit","Wed Sep 03 11:47:12 EAT 2025","broken","Wed Sep 03 11:50:32 EAT 2025","","bcheventTrails.spec.ts","",""
-"","33549","page races","firefox","Wed Sep 03 11:47:12 EAT 2025","failed","Wed Sep 03 11:47:45 EAT 2025","","bcheventTrails.spec.ts","",""
