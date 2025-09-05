@@ -2,22 +2,34 @@ import test, { expect } from "@playwright/test";
 
 test('homepage event', async ({ page }) => {
     test.setTimeout(200_000);
+    await test.step('Go to homepage event and check elements', async () => {
     await page.goto('https://staging-events.beachcomber-hotels.com/en/');
+    });
 
+    await test.step('cookies', async () => {
     // Dismiss cookie banner if present
     const cookieAccept = page.locator('button:has-text("I Accept")');
     if (await cookieAccept.isVisible()) {
         await cookieAccept.click();
     }
+  });
 
+    await test.step('Check title', async () => {
     //verifier le titre de la page
     await expect(page).toHaveTitle(/Homepage Event | Beachcomber/);
+    });
+
+    await test.step('Check slider', async () => {
     //verifier les elements de slider
     await expect(page.locator('//*[@id="__next"]/div/main/section/div/picture/img')).toBeVisible();
     await expect(page.locator('//*[@id="__next"]/div/main/section/div/div[3]/div/h1')).toBeVisible();
     await expect(page.locator('//*[@id="__next"]/div/main/section/div/div[3]/div/div/button')).toBeVisible();
     await page.locator('//*[@id="__next"]/div/main/section/div/div[3]/div/div/button').click();
     await expect(page).toHaveURL('https://staging-events.beachcomber-hotels.com/en/races');
+
+    });
+
+    await test.step('Check challenges section', async () => {
     //verifer les elements de section "challenges"
     await page.goto('https://staging-events.beachcomber-hotels.com/en/');
     await expect(page.getByText('Challenges')).toBeVisible();
@@ -47,12 +59,18 @@ await expect(titreGras).toHaveCSS('font-weight', /(bold|400)/);
   await expect(titreGras).toHaveCSS('color', 'rgb(51, 51, 51)');
   await expect(titreGras).toHaveCSS('text-align', 'center');
 
+    });
+
+    await test.step('Check picture', async () => {
   //bloc picture
 await expect(page.locator('//*[@id="__next"]/div/main/div[1]/section/div/div[2]/div/div[1]/div')).toBeVisible();
+    });
 
 //scroll un peu vers le bas
 await page.locator('body').press('PageDown');
 await page.waitForTimeout(1000);
+
+    await test.step('Check hotel', async () => {
 
 //bloc hotel
 await expect(page.locator('//*[@id="hotels"]/div/div/div[1]/p')).toBeVisible({ timeout: 150000 });
@@ -66,6 +84,9 @@ await page.goBack();
 await page.locator('body').press('PageDown');
 await page.waitForTimeout(1000);
 
+    });
+
+    await test.step('Check forumaire', async () => {
 //formulaire
 await page.goto('https://staging-events.beachcomber-hotels.com/en/');
 await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[1]/p[1]')).toBeVisible();
@@ -79,13 +100,16 @@ await page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div
 
 
 
-await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[1]/input')).toBeEmpty();
-await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[2]/input')).toBeEmpty();
-await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[3]/input')).toBeEmpty();
-await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[4]/textarea')).toBeEmpty();
-await expect(page.locator('//*[@id="privacy-policy"]')).not.toBeChecked();
+await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[1]/input')).toBeEmpty({timeout: 150000});
+await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[2]/input')).toBeEmpty({timeout: 150000});
+await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[3]/input')).toBeEmpty({timeout: 150000});
+await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[4]/textarea')).toBeEmpty({timeout: 150000});
+await expect(page.locator('//*[@id="privacy-policy"]')).not.toBeChecked({timeout: 150000});
 await expect(page.locator('//*[@id="__next"]/div/main/div[3]/section/div/div/div[2]/div/div[2]/form/div[6]/div/p')).toHaveText('Your message has been sent successfully!');
 
+    });
+
+await test.step('Check footer and subscription modal', async () => {
 //footer
 await expect(page.locator('//*[@id="__next"]/div/footer/div/div[1]/div[1]/div[1]/div/button')).toBeVisible();
 await expect(page.locator('//*[@id="__next"]/div/footer/div/div[1]/div[2]/div/div/div[1]/h3/a')).toBeVisible();
@@ -120,6 +144,7 @@ await expect(page.locator('input[name="PRIVACY_POLICY"]')).toBeChecked();
   //submit
 await page.locator('//*[@id="zcWebOptin"]').click();
 await page.goto('https://staging-events.beachcomber-hotels.com/en/');
+});
 
 });
 

@@ -3,6 +3,8 @@ test.skip(({ browserName }) => browserName !== 'chromium', 'Exécuté uniquement
 
 test('Process de paiement', async ({ page }) => {
   test.setTimeout(200000);
+
+  await test.step('Go to Sicom and login, pay dues', async () => {
   try{
      await page.goto('https://sicom-stg.sitefinity.cloud/');
      await expect (page.locator('xpath=//*[@id="bodycontent"]/main/section[1]/div[3]/div/div/h1')).toContainText('future');
@@ -30,6 +32,7 @@ test('Process de paiement', async ({ page }) => {
 } catch (e) {
   console.warn('⚠️ Loader toujours visible après 15s, on continue quand même');
 }
+
 
 //scroll un peu vers le bas
 await page.locator('body').press('PageDown');
@@ -67,25 +70,6 @@ await page.waitForTimeout(1000); // attendre 1 seconde pour voir l'effet de scro
   // Cliquer sur CNP
   await cnpButton.click();
 
-// Card
-      // Attendre que l'iframe soit présent
-
-   //try {
-     // Sélectionner l'iframe parent
-//const parentFrame = page.frameLocator("//iframe[@id='chk-if-30394']");
-
-// Sélectionner l'iframe enfant à l'intérieur de l'iframe parent
-//const cardFrame = parentFrame.frameLocator("//iframe[@name='card.number']");
-
-// Remplir le champ Card Number
-//await cardFrame.locator("input[name='card.number']").fill("424242424242");
-
-//} catch (e) {
-  //console.warn('⚠️ Loader toujours visible après 15s, on continue quand même');
-//}
- 
-     
-  
 
 
      console.log('Ok test passé');
@@ -95,4 +79,5 @@ await page.waitForTimeout(1000); // attendre 1 seconde pour voir l'effet de scro
     throw error; // Important : re-throw pour que le test soit marqué comme échoué
   }
 
+});
 });
